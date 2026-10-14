@@ -7,9 +7,22 @@
   <style>
     :root {
       --primary: #1b4332;
+      --primary-hover: #143225;
       --accent: #2d6a4f;
+      --accent-hover: #22513c;
+      --whatsapp: #25D366;
+      --whatsapp-hover: #1ebc57;
       --light: #f8f9fa;
+      --card-bg: #ffffff;
       --dark: #212529;
+      --muted: #6c757d;
+      --border: #e9ecef;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -21,101 +34,234 @@
       line-height: 1.6;
     }
 
+    /* Header & Navigation */
     header {
       background-color: var(--primary);
       color: white;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     header h1 {
       margin: 0 0 0.5rem 0;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     header p {
-      margin: 0;
-      font-size: 1.1rem;
-      opacity: 0.9;
+      margin: 0 0 1rem 0;
+      font-size: 1.15rem;
+      opacity: 0.95;
+      font-weight: 300;
     }
 
+    .version-badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Container */
     .container {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
 
+    /* Cards */
     .card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.75rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
     }
 
     .btn {
-      display: inline-block;
-      background-color: var(--accent);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1rem;
       text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: 0.5rem;
+      transition: all 0.2s ease-in-out;
+      border: none;
+      cursor: pointer;
     }
 
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-download {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-download:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn icon {
+      margin-right: 8px;
+    }
+
+    /* Features List */
     .features {
       list-style: none;
       padding: 0;
+      margin: 1rem 0;
     }
 
     .features li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
     }
 
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .features li strong {
+      color: var(--primary);
+      min-width: 180px;
+      display: inline-block;
+    }
+
+    /* Steps List */
+    .steps {
+      padding-left: 1.2rem;
+      margin: 1rem 0 0 0;
+    }
+
+    .steps li {
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       font-size: 0.9rem;
-      color: #6c757d;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      background-color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .features li {
+        flex-direction: column;
+      }
+      
+      .features li strong {
+        min-width: 100%;
+        margin-bottom: 0.25rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>TeacherConnect</h1>
-    <p>Find mutually agreed teaching station swaps and post verified listings effortlessly.</p>
+    <div class="header-content">
+      <h1>TeacherConnect</h1>
+      <p>Find mutually agreed teaching station swaps, BOM vacancies, and learning resources effortlessly.</p>
+      <span class="version-badge">Version 1.0.278</span>
+    </div>
   </header>
 
   <div class="container">
     <div class="card">
       <h2>Connect & Swap Stations Fast</h2>
-      <p>TeacherConnect helps secondary school teachers browse active teaching swap requests, match subject combinations, and coordinate secure school transfers.</p>
+      <p>TeacherConnect helps secondary school teachers across Kenya browse active teaching swap requests, match subject combinations, and coordinate secure school transfers.</p>
       
       <ul class="features">
-        <li><strong>Subject Combination Watching:</strong> Find compatible subject swaps tailored to your county and station.</li>
-        <li><strong>Verified Postings:</strong> Secure listing management with automated TSC verification ensures authentic user posts.</li>
-        <li><strong>Instant WhatsApp/Direct Contact:</strong> Reach out directly to potential swap partners.</li>
+        <li>
+          <strong>Subject Combination Matching:</strong>
+          <span>Find compatible subject swaps tailored to your preferred county, sub-county, and school type.</span>
+        </li>
+        <li>
+          <strong>Verified Postings:</strong>
+          <span>Secure listing management ensures authentic user posts for both TSC swaps and BOM teaching opportunities.</span>
+        </li>
+        <li>
+          <strong>Teacher Resources Directory:</strong>
+          <span>Access subject folders, schemes of work, lesson plans, setbook guides, and exam revisions directly in-app.</span>
+        </li>
+        <li>
+          <strong>Instant Direct Contact:</strong>
+          <span>Reach out directly via WhatsApp or direct calls to potential swap partners without third-party delay.</span>
+        </li>
       </ul>
 
-      <!-- Primary Action: WhatsApp Contact -->
-      <a href="https://wa.me/254712409816?text=Hello%20I%20am%20interested%20in%20teaching%20swap" class="btn" style="background-color: #25D366; margin-bottom: 10px;">Chat on WhatsApp</a>
+      <div class="btn-group">
+        <!-- Primary Action: WhatsApp Contact -->
+        <a href="https://wa.me/254712409816?text=Hello%20I%20am%20interested%20in%20teaching%20swap" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          Chat on WhatsApp
+        </a>
 
-      <!-- Secondary Action: APK Download (Updated to v1.0.278) -->
-      <a href="https://github.com/mwalimuconnect/TeacherConnect-/releases/download/v1.0.278/app-release.apk" class="btn">Download Android App (v1.0.278)</a>
+        <!-- Secondary Action: APK Download (Updated to v1.0.278) -->
+        <a href="https://github.com/mwalimuconnect/TeacherConnect-/releases/download/v1.0.278/app-release.apk" class="btn btn-download">
+          Download Android App (v1.0.278)
+        </a>
+      </div>
     </div>
 
     <div class="card">
       <h2>How It Works</h2>
-      <ol>
-        <li>Submit your current teaching subject combination and preferred county/station.</li>
-        <li>Browse available listings from other teachers looking for a mutual swap.</li>
-        <li>Connect directly to coordinate transfer paperwork and school approvals.</li>
+      <ol class="steps">
+        <li><strong>Post Your Station:</strong> Submit your current teaching subject combination, current county, and desired destination county.</li>
+        <li><strong>Browse Listings:</strong> Filter through real-time swap listings and secondary school vacancy updates.</li>
+        <li><strong>Connect & Transfer:</strong> Get in direct touch with your matching partner to coordinate transfer paperwork and school approvals.</li>
       </ol>
     </div>
   </div>
