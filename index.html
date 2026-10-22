@@ -99,6 +99,32 @@
       padding-bottom: 0.5rem;
     }
 
+    /* QR Code Box Styling */
+    .qr-container {
+      text-align: center;
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      background-color: #f8f9fa;
+      border: 1px dashed var(--accent);
+      border-radius: var(--radius);
+    }
+
+    .qr-container img {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .qr-caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
     /* Action Buttons */
     .btn-group {
       display: flex;
@@ -239,15 +265,26 @@
         </li>
       </ul>
 
+      <!-- QR Code Section for Fast Phone Downloads -->
+      <div class="qr-container">
+        <img 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fgithub.com%2Fmwalimuconnect%2FTeacherConnect-%2Freleases%2Fdownload%2Fv1.0.3%252B4%2Fapp-release.apk" 
+          alt="Scan to Download TeacherConnect v1.0.3+4" 
+          width="180" 
+          height="180"
+        />
+        <p class="qr-caption">Scan with your phone camera to download APK directly</p>
+      </div>
+
       <div class="btn-group">
+        <!-- Direct APK Download Button -->
+        <a href="https://github.com/mwalimuconnect/TeacherConnect-/releases/download/v1.0.3%2B4/app-release.apk" class="btn btn-download">
+          Download Android App (v1.0.3+4)
+        </a>
+
         <!-- Primary Action: WhatsApp Contact -->
         <a href="https://wa.me/254712409816?text=Hello%20I%20am%20interested%20in%20teaching%20swap" class="btn btn-whatsapp" target="_blank" rel="noopener">
           Chat on WhatsApp
-        </a>
-
-        <!-- Secondary Action: Updated v1.0.3+4 Tag APK Download -->
-        <a href="https://github.com/mwalimuconnect/TeacherConnect-/releases/download/v1.0.3%2B4/app-release.apk" class="btn btn-download">
-          Download Android App (v1.0.3+4)
         </a>
       </div>
     </div>
